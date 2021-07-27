@@ -1,0 +1,20 @@
+#----------------------------------------
+#Configure aws cli
+#----------------------------------------
+
+aws --version
+
+aws configure list
+
+aws configure --profile default
+
+aws iam list-users
+
+#aws ec2 create-default-vpc --profile default
+
+#----------------------------------------
+#Create EMR cluster
+#----------------------------------------
+
+
+aws emr create-cluster --applications Name=Spark Name=Zeppelin --ec2-attributes '{"KeyName":"spark-cluster","InstanceProfile":"EMR_EC2_DefaultRole","SubnetId":"subnet-57aacb0a","EmrManagedSlaveSecurityGroup":"sg-03b8f71547a599c62","EmrManagedMasterSecurityGroup":"sg-0a9030f2b7ddff3e5"}' --service-role EMR_DefaultRole --enable-debugging --release-label emr-5.33.0 --log-uri 's3n://aws-logs-spark-test-us-west-2/elasticmapreduce/' --name 'spark-test' --instance-groups '[{"InstanceCount":1,"EbsConfiguration":{"EbsBlockDeviceConfigs":[{"VolumeSpecification":{"SizeInGB":32,"VolumeType":"gp2"},"VolumesPerInstance":2}]},"InstanceGroupType":"MASTER","InstanceType":"m5.xlarge","Name":"Master Instance Group"},{"InstanceCount":2,"EbsConfiguration":{"EbsBlockDeviceConfigs":[{"VolumeSpecification":{"SizeInGB":32,"VolumeType":"gp2"},"VolumesPerInstance":2}]},"InstanceGroupType":"CORE","InstanceType":"m5.xlarge","Name":"Core Instance Group"}]' --configurations '[{"Classification":"spark","Properties":{}}]' --scale-down-behavior TERMINATE_AT_TASK_COMPLETION --region us-west-2
