@@ -13,7 +13,7 @@ In this task, we have to build an ETL Pipeline that extracts their data from S3 
 
 <b>Project Datasets</b>
 
-Song Data Path --> s3://udacity-dend/song_data Log Data Path --> s3://udacity-dend/log_data Log Data JSON Path --> s3://udacity-dend/log_json_path.json
+Song Data Path --> s3://aws-logs-spark-test-us-west-2/song_data Log Data Path --> s3://aws-logs-spark-test-us-west-2/log_data Log Data JSON Path --> s3://aws-logs-spark-test-us-west-2/log_json_path.json
 
 <b>Song Dataset</b>
 
