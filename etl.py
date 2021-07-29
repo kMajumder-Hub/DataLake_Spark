@@ -120,10 +120,10 @@ def main():
     Main Function
     """
     spark = create_spark_session()
-    input_data_song = "s3://aws-logs-spark-test-us-west-2/"
-    input_data_log = "s3://aws-logs-spark-test-us-west-2/"
+    input_data_song = "s3a://aws-logs-spark-test-us-west-2/song-data/"
+    input_data_log = "s3a://aws-logs-spark-test-us-west-2/log-data/"
 
-    output_data = "s3://aws-logs-spark-test-us-west-2/elasticmapreduce/"
+    output_data = "s3a://aws-logs-spark-test-us-west-2/outputData"
 
     process_song_data(spark, input_data_song, output_data)
     process_log_data(spark, input_data_log, output_data)
